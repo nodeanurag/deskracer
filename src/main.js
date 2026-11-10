@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { inject } from '@vercel/analytics';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
@@ -17,6 +18,9 @@ import { buildGoldenHourAtmosphere } from './scene/GoldenHourAtmosphere.js';
 import { buildRoomEnvironment } from './scene/RoomEnvironmentBuilder.js';
 import { createKartPhysicsController } from './physics/KartPhysicsController.js';
 import { createWebAudioSynth } from './audio/WebAudioSynth.js';
+
+// Initialize Vercel Web Analytics
+inject();
 
 async function initApp() {
   const container = document.getElementById('canvas-container');
